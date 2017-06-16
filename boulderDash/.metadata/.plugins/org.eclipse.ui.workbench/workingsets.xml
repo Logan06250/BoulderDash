@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1497441838247_0" label="boulderdash" name="boulderdash">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/contract" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/main" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/view" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/boulderdash" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/controller" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/model" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1497595060371_2" label="projetJava" name="projetJava">
+<item elementID="=contract" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RemoteSystemsTempFiles" type="4"/>
+<item elementID="=main" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=view" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/boulderdash" type="4"/>
+<item elementID="=controller" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=model" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1497442469911_1" label="Window Working Set" name="Aggregate for window 1497442469911"/>
+<mruList name="projetJava"/>
+</workingSetManager>
