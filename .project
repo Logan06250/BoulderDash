@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>projetjava</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-	</buildSpec>
-	<natures>
-	</natures>
-</projectDescription>
+
+CREATE TABLE Level(
+        id     int (11) Auto_increment  NOT NULL ,
+        number Int ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Location(
+        id        int (11) Auto_increment  NOT NULL ,
+        positionX Int ,
+        positionY Int ,
+        type      Int ,
+        id_Level  Int ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+ALTER TABLE Location ADD CONSTRAINT FK_Location_id_Level FOREIGN KEY (id_Level) REFERENCES Level(id);
