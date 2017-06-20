@@ -1,9 +1,11 @@
-package model;
+package test;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.Element;
+import model.Environment;
 public class ElementTest {
 	private Element element;
 	@Before
