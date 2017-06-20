@@ -3,8 +3,11 @@ package model;
 public class Map {
 	private Element grid[][];
 	private int diamondNumber;
+	private Player player;
+	
 	
 	public Map(){
+		player = new Player();
 		//Creation of the grid with the BDD	
 	}
 	public void addElement(int posX, int posY, Element element){
@@ -22,4 +25,12 @@ public class Map {
 	public void setDiamondNumber(int diamondNumber) {
 		this.diamondNumber = diamondNumber;
 	}
+	
+	public Player getPlayer(){
+		return player;
+	}
+	
+	
+	
+	
 }
