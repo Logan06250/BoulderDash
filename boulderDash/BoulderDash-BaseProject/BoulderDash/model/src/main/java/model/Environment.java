@@ -10,4 +10,5 @@ public enum Environment {
 	MONSTER,
 	STARTER,
 	FINISHER
+
 }

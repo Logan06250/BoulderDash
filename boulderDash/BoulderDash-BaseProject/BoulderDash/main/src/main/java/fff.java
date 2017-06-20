@@ -41,7 +41,7 @@ public class fff {
 	 */
 	private void initialize() {
 		
-		Element element = new Element(Environment.DIAMOND);
+		Element element = new Element(Environment.WALL);
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);

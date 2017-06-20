@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 import javax.imageio.ImageIO;
+
 import javax.swing.ImageIcon;
 
 public class Element {
