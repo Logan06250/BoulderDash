@@ -14,10 +14,10 @@ public class MapMotion {
 			this.map.getGrid()[posX][posY-1] = bufferedElement;	
 			break;
 		case RIGHT:
-			this.map.getGrid()[posX][posX+1] = bufferedElement;
+			this.map.getGrid()[posX+1][posY] = bufferedElement;
 			break;
 		case LEFT:
-			this.map.getGrid()[posX][posX-1] = bufferedElement;
+			this.map.getGrid()[posX-1][posY] = bufferedElement;
 			break;
 		}
 	}
