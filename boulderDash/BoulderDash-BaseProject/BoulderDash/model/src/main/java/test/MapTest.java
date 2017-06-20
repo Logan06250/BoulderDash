@@ -1,17 +1,20 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.sql.SQLException;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import model.Map;
-import model.Element;
 
 public class MapTest {
 	private Map map;
 	@Before
-	public void setUp(){
-		this.map = new Map();
+	public void setUp() throws SQLException{
+		this.map = new Map(1);
 	}
 	@Test
 	public void testGetDiamondNumber(){
