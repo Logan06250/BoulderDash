@@ -12,6 +12,6 @@ public class MapMotionTest {
 	}
 	@Test
 	public void testMoveElement(){
-		//justDoIt
+		fail("not yet implemented");
 	}
 }

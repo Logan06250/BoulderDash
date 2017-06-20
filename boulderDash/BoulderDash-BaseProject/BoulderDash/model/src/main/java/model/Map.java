@@ -2,7 +2,7 @@ package model;
 
 public class Map {
 	private Element grid[][];
-	private int diamondNumber;
+	private int diamondNumber = 0;
 	private Player player;
 	
 	

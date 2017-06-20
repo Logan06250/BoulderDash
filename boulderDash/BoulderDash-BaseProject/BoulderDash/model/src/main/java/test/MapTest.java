@@ -15,7 +15,7 @@ public class MapTest {
 	}
 	@Test
 	public void testGetDiamondNumber(){
-		int expected = 5;
+		int expected = 0;
 		assertEquals(expected,map.getDiamondNumber());
 	}
 	@Test
@@ -26,11 +26,11 @@ public class MapTest {
 	}
 	@Test
 	public void testGetGrid(){
-		
+		fail("not yet implemented");
 	}
 	@Test
 	public void testSetGrid(){
-		
+		fail("not yet implemented");
 	}
 
 }
