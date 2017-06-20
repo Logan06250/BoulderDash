@@ -12,6 +12,7 @@ public class Map {
 	
 	public Map(int levelInt) throws SQLException{
 		player = new Player();
+		Element grid[][] = new Element[41][23];
 		this.generateMap(levelInt);
 	}
 	public void addElement(int posX, int posY, Element element){
@@ -41,8 +42,8 @@ public class Map {
 		BoulderDashBDDConnector connection = new BoulderDashBDDConnector();
 		connection.getLevelByLevelId(levelId, result);
 			
-		for(int i = 1; i > 22; i++){
-			for(int j = 1; j > 40; j++){
+		for(int i = 1; i < 22; i++){
+			for(int j = 1; j < 40; j++){
 				Environment tempV = Environment.MUD;
 				switch (result[incr]){
 				case 1 : tempV = Environment.NOTHING; break;
@@ -54,7 +55,13 @@ public class Map {
 				case 7 : tempV = Environment.STARTER; break;
 				case 8 : tempV = Environment.FINISHER; break;
 				}
-				grid[j][i] = new Element(tempV);
+				try{
+					Element element = new Element(tempV);
+				this.addElement(j, i, element);
+				}
+				catch(Exception e){
+					System.out.println(e);
+				}
 				incr++;
 			}
 		}
