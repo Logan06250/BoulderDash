@@ -1,7 +1,6 @@
 package model;
 
 public enum Environment {
-
 	NOTHING,
 	WALL,
 	MUD,
@@ -10,5 +9,4 @@ public enum Environment {
 	MONSTER,
 	STARTER,
 	FINISHER
-
 }
