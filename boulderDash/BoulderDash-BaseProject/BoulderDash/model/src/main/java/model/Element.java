@@ -1,16 +1,15 @@
 package model;
 import java.awt.image.BufferedImage;
 import java.io.*;
-
 import javax.imageio.ImageIO;
 
-import javax.swing.ImageIcon;
 
 public class Element {
 
-	final int width = 16;
-	final int height = 16;
-
+	private final int width = 16;
+	private final int height = 16;
+	
+	private Environment type;
 	private BufferedImage image;
 
 	public Element(Environment type){
@@ -20,6 +19,7 @@ public class Element {
 		catch(Exception e){
 			System.out.println(e);
 		}
+		this.setType(type);
 	}
 
 	public BufferedImage getImage() {
@@ -28,6 +28,14 @@ public class Element {
 
 	public void setImage(BufferedImage image) {
 		this.image = image;
+	}
+	
+	public Environment getType() {
+		return type;
+	}
+
+	public void setType(Environment type) {
+		this.type = type;
 	}
 	
 	public int getXSpriteImage(Environment type){
@@ -75,4 +83,6 @@ public class Element {
 		}
 	return tempV;
 	}
+
+
 }
