@@ -7,4 +7,5 @@ public interface IMapGame {
 	public IElement getElementOfGrid(int posX, int posY);
 	public int getDiamondNumber();
 	public void setDiamondNumber(int nb);
+	public void setGrid(IElement[][] elements);
 }

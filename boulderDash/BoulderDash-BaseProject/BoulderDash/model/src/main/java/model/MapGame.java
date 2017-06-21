@@ -6,7 +6,7 @@ import model.dao.BoulderDashBDDConnector;
 import view.IElement;
 
 public class MapGame implements IMapGame{
-	private Element grid[][] = new Element[50][50];
+	private IElement grid[][] = new Element[50][50];
 	private int diamondNumber = 0;
 	private Player player;
 	
@@ -24,7 +24,7 @@ public class MapGame implements IMapGame{
 	public IElement[][] getGrid() {
 		return this.grid;
 	}
-	public void setGrid(Element[][] grid) {
+	public void setGrid(IElement[][] grid) {
 		this.grid = grid;
 	}
 	public int getDiamondNumber() {
