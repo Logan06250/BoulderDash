@@ -1,6 +1,6 @@
 package model;
 
-import view.IElement;
+import model.IDirection.Direction;
 
 public interface IMapGame {
 	public IElement[][] getGrid();
@@ -9,5 +9,7 @@ public interface IMapGame {
 	public void setDiamondNumber(int nb);
 	public void setGrid(IElement[][] grid);
 	public void addElement(int i, int j, IElement element);
+	public void moveElement(model.IDirection.Direction direction, int posX, int posY);
+	public void movePlayer(Direction direction);
 
 }

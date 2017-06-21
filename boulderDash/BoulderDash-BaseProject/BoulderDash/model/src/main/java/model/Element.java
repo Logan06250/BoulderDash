@@ -5,21 +5,19 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import view.IElement;
-
 
 public class Element implements IElement{
 
 	private final int width = 16;
 	private final int height = 16;
 	
-	private Environment type;
-	private Direction movement;
+	private model.IEnvironment.Environment type;
+	private model.IDirection.Direction movement;
 	
 	private BufferedImage image;
 	private ImageIcon imageIcon;
 	
-	public Element(Environment type){
+	public Element(model.IEnvironment.Environment type){
 		try{	
 			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);
 			this.setImageIcon(new ImageIcon(this.image));
@@ -29,7 +27,7 @@ public class Element implements IElement{
 		}
 		this.setType(type);
 	}
-	public Element(Direction movement){
+	public Element(model.IDirection.Direction movement){
 		try{	
 			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74336.png"))).getSubimage(this.getXSpriteImagePlayer(movement), this.getYSpriteImagePlayer(movement), this.width, this.height);	
 			this.setImageIcon(new ImageIcon(this.image));
@@ -48,18 +46,18 @@ public class Element implements IElement{
 		this.image = image;
 	}
 	
-	public Environment getType() {
-		return type;
+	public model.IEnvironment.Environment getType() {
+		return this.type;
 	}
 
-	public void setType(Environment type) {
+	public void setType(model.IEnvironment.Environment type) {
 		this.type = type;
 	}
 	
-	public Direction getMovement() {
-		return movement;
+	public model.IDirection.Direction getMovement() {
+		return this.movement;
 	}
-	public void setMovement(Direction movement) {
+	public void setMovement(model.IDirection.Direction movement) {
 		this.movement = movement;
 	}
 
@@ -72,7 +70,7 @@ public class Element implements IElement{
 		this.imageIcon = imageIcon;
 	}
 	
-	public int getXSpriteImagePlayer(Direction movement){
+	public int getXSpriteImagePlayer(model.IDirection.Direction movement){
 		int tempV = 0;
 		switch(movement){
 		case DOWN: tempV = 0; 
@@ -87,7 +85,7 @@ public class Element implements IElement{
 	return tempV;
 	}
 	
-	public int getYSpriteImagePlayer(Direction movement){
+	public int getYSpriteImagePlayer(model.IDirection.Direction movement){
 		int tempV = 0;
 		switch(movement){
 		case DOWN: tempV = 0;
@@ -103,7 +101,7 @@ public class Element implements IElement{
 	return tempV;
 	}
 	
-	public int getXSpriteImage(Environment type){
+	public int getXSpriteImage(model.IEnvironment.Environment type){
 		int tempV = 0;
 		switch(type){
 		case NOTHING: tempV = 0; 
@@ -126,7 +124,7 @@ public class Element implements IElement{
 	return tempV;
 	}
 	
-	public int getYSpriteImage(Environment type){
+	public int getYSpriteImage(model.IEnvironment.Environment type){
 		int tempV = 0;
 		switch(type){
 		case NOTHING: tempV = 16;

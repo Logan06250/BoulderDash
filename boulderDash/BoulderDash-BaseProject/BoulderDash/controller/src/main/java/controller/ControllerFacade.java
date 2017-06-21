@@ -21,7 +21,7 @@ public class ControllerFacade implements IController {
 
 
 	public void start() throws SQLException {
-		view.startGame(this.model.getMap());
+		view.startGame(this.model);
 	}
 
 

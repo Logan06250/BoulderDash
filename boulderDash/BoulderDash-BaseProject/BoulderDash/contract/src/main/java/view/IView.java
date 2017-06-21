@@ -21,5 +21,5 @@ public interface IView {
     void showMenu();
     void showGame();
 	void updateGame();
-	void startGame(IMapGame iMapGame);
+	void startGame(IModel model);
 }

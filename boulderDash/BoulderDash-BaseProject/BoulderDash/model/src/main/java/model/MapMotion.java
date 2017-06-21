@@ -1,30 +1,32 @@
 package model;
 
-import view.IElement;
+public class MapMotion implements IMotionMap{
 
-public class MapMotion {
-	private IMapGame map;
 	
-	public MapMotion(IMapGame map){
-		this.map = map;
+	public MapMotion(){
+
 	}
 	
-	public void moveElement(Direction direction, int posX, int posY){
-		IElement bufferedElement = this.map.getElementOfGrid(posX, posY);
-		this.map.getGrid()[posX][posY] = new Element(Environment.NOTHING);
+	public IElement[][] moveElement(model.IDirection.Direction direction, int posX, int posY, IElement grid[][]){
+		IElement bufferedElement = grid[posX][posY];
+		grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
 		switch(direction){
 		case UP:
-			this.map.getGrid()[posX][posY+1] = bufferedElement;
+			grid[posX][posY+1] = bufferedElement;
 			break;
 		case DOWN:
-			this.map.getGrid()[posX][posY-1] = bufferedElement;	
+			grid[posX][posY-1] = bufferedElement;	
 			break;
 		case RIGHT:
-			this.map.getGrid()[posX+1][posY] = bufferedElement;
+			grid[posX+1][posY] = bufferedElement;
 			break;
 		case LEFT:
-			this.map.getGrid()[posX-1][posY] = bufferedElement;
+			grid[posX-1][posY] = bufferedElement;
 			break;
 		}
+		return grid;
 	}
+
+
+
 }

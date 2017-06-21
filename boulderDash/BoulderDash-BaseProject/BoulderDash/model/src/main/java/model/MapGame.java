@@ -3,13 +3,13 @@ package model;
 import java.sql.SQLException;
 
 import model.dao.BoulderDashBDDConnector;
-import view.IElement;
 
 public class MapGame implements IMapGame{
 	private IElement grid[][] = new Element[50][50];
 	private int diamondNumber = 0;
-	private Player player;
 
+	int playerX;
+	int playerY;
 
 	public MapGame(int levelInt) throws SQLException{
 		this.generateMap(levelInt);
@@ -33,9 +33,33 @@ public class MapGame implements IMapGame{
 		this.diamondNumber = diamondNumber;
 	}
 
-	public Player getPlayer(){
-		return player;
+	public void moveElement(model.IDirection.Direction direction, int posX, int posY){
+		this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+		switch(direction){
+		case DOWN:
+			this.grid[posX][posY+1] = new Element(direction);
+			playerY++;
+			break;
+		case UP:
+			this.grid[posX][posY-1] = new Element(direction);
+			playerY--;
+			break;
+		case RIGHT:
+			this.grid[posX+1][posY] = new Element(direction);
+			playerX++;
+			break;
+		case LEFT:
+			this.grid[posX-1][posY] = new Element(direction);
+			playerX--;
+			break;
+		}
 	}
+
+	public void movePlayer(model.IDirection.Direction direction){
+
+		moveElement(direction, playerX, playerY);
+	}
+
 
 	public void generateMap(int levelId) throws SQLException{
 
@@ -46,27 +70,28 @@ public class MapGame implements IMapGame{
 
 		for(int i = 1; i <= 22; i++){
 			for(int j = 1; j <= 40; j++){
-				Environment tempV = Environment.MUD;
+				model.IEnvironment.Environment tempV = model.IEnvironment.Environment.MUD;
 				switch (result[incr]){
-				case 1 : tempV = Environment.NOTHING; break;
-				case 2 : tempV = Environment.WALL; break;
-				case 3 : tempV = Environment.MUD; break;
-				case 4 : tempV = Environment.DIAMOND; break;
-				case 5 : tempV = Environment.MONSTER; break;
-				case 6 : tempV = Environment.ROCK; break;
-				case 7 : tempV = Environment.STARTER; break;
-				case 8 : tempV = Environment.FINISHER; break;
+				case 1 : tempV = model.IEnvironment.Environment.NOTHING; break;
+				case 2 : tempV = model.IEnvironment.Environment.WALL; break;
+				case 3 : tempV = model.IEnvironment.Environment.MUD; break;
+				case 4 : tempV = model.IEnvironment.Environment.DIAMOND; break;
+				case 5 : tempV = model.IEnvironment.Environment.MONSTER; break;
+				case 6 : tempV = model.IEnvironment.Environment.ROCK; break;
+				case 7 : tempV = model.IEnvironment.Environment.STARTER; break;
+				case 8 : tempV = model.IEnvironment.Environment.FINISHER; break;
 				}
 				try{
 					if(result[incr] == 7){
-						Element element = new Element(Direction.DOWN);
+						Element element = new Element(model.IDirection.Direction.DOWN);
 						this.addElement(j, i, element);
+						this.playerX = j;
+						this.playerY = i;
 					}
 					else{
 						Element element = new Element(tempV);
 						this.addElement(j, i, element);
 					}
-
 				}
 				catch(Exception e){
 					System.out.println(e);

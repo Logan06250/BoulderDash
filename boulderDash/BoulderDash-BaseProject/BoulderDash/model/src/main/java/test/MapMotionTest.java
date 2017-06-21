@@ -20,13 +20,13 @@ public class MapMotionTest {
 	@Before
 	public void setUp() throws SQLException{
 		this.map = new MapGame(1);
-		this.mapmotion = new MapMotion(map);
+		this.mapmotion = new MapMotion();
 	}
 	@Test
 	public void testMoveElement(){
 		Element expected1 = new Element(Environment.STARTER);
 		Element expected2 = new Element(Environment.NOTHING);
-		this.mapmotion.moveElement(Direction.UP,4,3);
+		this.mapmotion.moveElement(Direction.UP,4,3,map);
 		assertEquals(expected1,this.map.getElementOfGrid(4, 2));
 		assertEquals(expected2,this.map.getElementOfGrid(4, 2));
 	}

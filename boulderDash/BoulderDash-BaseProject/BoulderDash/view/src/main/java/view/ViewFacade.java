@@ -2,8 +2,9 @@ package view;
 
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
-import model.IMapGame;
+import model.IModel;
 
 public class ViewFacade implements IView {
 
@@ -37,9 +38,13 @@ public class ViewFacade implements IView {
 	}
 	
 	@Override
-	public void startGame(IMapGame mapGame) {
-		frame = new FrameGame(mapGame);
-		frame.setVisible(true);
-		frame.setSize(900, 900);
+	public void startGame(IModel model) {
+		 SwingUtilities.invokeLater(new Runnable() {
+	            public void run() {
+	                frame = new FrameGame(model);
+	                frame.setVisible(true);
+	        		frame.setSize(900, 900);
+	            }
+	        });
 	}
 }

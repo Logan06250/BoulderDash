@@ -5,14 +5,15 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import model.IMapGame;
+import model.IModel;
 
 public class PanelGame extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	IMapGame map;
 	
-	public PanelGame(IMapGame map){
-		this.map = map;
+	public PanelGame(IModel model){
+		this.map = model.getMap();
 	}
 
 	public void paintComponent(Graphics g){

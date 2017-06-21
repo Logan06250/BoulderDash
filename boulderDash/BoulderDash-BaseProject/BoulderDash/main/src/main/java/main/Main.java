@@ -15,17 +15,11 @@ public abstract class Main{
     	ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
     	controller.start();
-    	
-    	try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-    	
-    	Thread.sleep(5000);
-    	controller.getModel().getMap().addElement(2, 2, new Element(Environment.WALL));
-    	controller.getView().updateGame();
-    	
+    
+    	while(true){
+	    	Thread.sleep(100);
+	    	controller.getView().updateGame();
+    	}
     	 	
     }
 
