@@ -18,8 +18,6 @@ public class Element implements IElement{
 	
 	private BufferedImage image;
 	private ImageIcon imageIcon;
-
-	//private Direction movement;
 	
 	public Element(Environment type){
 		try{	
@@ -42,11 +40,9 @@ public class Element implements IElement{
 		this.setMovement(movement);
 	}
 
-
 	public BufferedImage getImage() {
 		return image;
 	}
-	
 
 	public void setImage(BufferedImage image) {
 		this.image = image;
@@ -60,6 +56,14 @@ public class Element implements IElement{
 		this.type = type;
 	}
 	
+	public Direction getMovement() {
+		return movement;
+	}
+	public void setMovement(Direction movement) {
+		this.movement = movement;
+	}
+
+	
 	public ImageIcon getImageIcon() {
 		return imageIcon;
 	}
@@ -67,6 +71,7 @@ public class Element implements IElement{
 	public void setImageIcon(ImageIcon imageIcon) {
 		this.imageIcon = imageIcon;
 	}
+	
 	public int getXSpriteImagePlayer(Direction movement){
 		int tempV = 0;
 		switch(movement){
@@ -81,6 +86,7 @@ public class Element implements IElement{
 		}
 	return tempV;
 	}
+	
 	public int getYSpriteImagePlayer(Direction movement){
 		int tempV = 0;
 		switch(movement){
@@ -142,13 +148,4 @@ public class Element implements IElement{
 		}
 	return tempV;
 	}
-	public Direction getMovement() {
-		return movement;
-	}
-	public void setMovement(Direction movement) {
-		this.movement = movement;
-	}
-
-
-
 }
