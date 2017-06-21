@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.Element;
+import model.Environment;
 import model.IMapGame;
 import model.MapGame;
 
@@ -29,12 +31,15 @@ public class MapTest {
 		assertEquals(expected,map.getDiamondNumber());
 	}
 	@Test
-	public void testGetGrid(){
-		fail("not yet implemented");
+	public void testGetGrid() throws SQLException{
+		Element expected = new Element(Environment.WALL);
+		assertEquals(expected, this.map.getGrid()[1][1]);
 	}
 	@Test
 	public void testSetGrid(){
-		fail("not yet implemented");
+		Element expected = new Element(Environment.MUD);
+		this.map.setGrid(new Element[1][1]);
+		assertEquals(expected, this.map.getGrid()[1][1]);
 	}
 
 }

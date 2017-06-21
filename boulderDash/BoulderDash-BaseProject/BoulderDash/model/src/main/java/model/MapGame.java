@@ -12,7 +12,6 @@ public class MapGame implements IMapGame{
 	
 	
 	public MapGame(int levelInt) throws SQLException{
-		player = new Player();
 		this.generateMap(levelInt);
 	}
 	public void addElement(int posX, int posY, IElement element){
@@ -57,6 +56,26 @@ public class MapGame implements IMapGame{
 				case 6 : tempV = Environment.ROCK; break;
 				case 7 : tempV = Environment.STARTER; break;
 				case 8 : tempV = Environment.FINISHER; break;
+				}
+				try{
+					Element element = new Element(tempV);
+				this.addElement(j, i, element);
+				}
+				catch(Exception e){
+					System.out.println(e);
+				}
+				incr++;
+			}
+		}
+		
+		
+		
+		for(int i = 1; i <= 22; i++){
+			for(int j = 1; j <= 40; j++){
+				Direction tempV = Direction.DOWN;
+				switch (result[incr]){
+				
+				case 7 : tempV = Direction.DOWN; break;
 				}
 				try{
 					Element element = new Element(tempV);
