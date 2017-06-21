@@ -35,8 +35,8 @@ public class ViewFacade implements IView {
 		
 	}
 	@Override
-	public void startGame(IMapGame MapGame) {
-		frame = new FrameGame();
+	public void startGame(IMapGame mapGame) {
+		frame = new FrameGame(mapGame);
 		frame.setVisible(true);
 		frame.setSize(900, 900);
 	}
