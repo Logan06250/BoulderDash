@@ -3,7 +3,6 @@ package view;
 import javax.swing.JFrame;
 
 import model.IMapGame;
-import model.IModel;
 
 public class FrameGame extends JFrame{
 	private static final long serialVersionUID = 1L;

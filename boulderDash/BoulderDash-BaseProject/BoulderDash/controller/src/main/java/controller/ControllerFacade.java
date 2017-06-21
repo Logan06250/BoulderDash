@@ -2,8 +2,6 @@ package controller;
 
 import java.sql.SQLException;
 
-import javax.swing.text.View;
-
 import model.IModel;
 import view.IView;
 
@@ -11,28 +9,28 @@ import view.IView;
 public class ControllerFacade implements IController {
 
 
-    private final IView  view;
-    private final IModel model;
+	private final IView  view;
+	private final IModel model;
 
 
-    public ControllerFacade(final IView view, final IModel model) {
-        super();
-        this.view = view;
-        this.model = model;
-    }
+	public ControllerFacade(final IView view, final IModel model) {
+		super();
+		this.view = view;
+		this.model = model;
+	}
 
 
-    public void start() throws SQLException {
-        view.startGame(this.model.getMap());
-    }
+	public void start() throws SQLException {
+		view.startGame(this.model.getMap());
+	}
 
 
-    public IView getView() {
-        return this.view;
-    }
+	public IView getView() {
+		return this.view;
+	}
 
 
-    public IModel getModel() {
-        return this.model;
-    }
+	public IModel getModel() {
+		return this.model;
+	}
 }
