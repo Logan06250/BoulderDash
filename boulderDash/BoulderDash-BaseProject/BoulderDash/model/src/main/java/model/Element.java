@@ -14,16 +14,15 @@ public class Element implements IElement{
 	private final int height = 16;
 	
 	private Environment type;
+	private Direction movement;
+	
 	private BufferedImage image;
 	private ImageIcon imageIcon;
-	
-	private BufferedImage imagePlayer ;
-	private Direction movement;
+
 	//private Direction movement;
 	
 	public Element(Environment type){
-		try{
-				
+		try{	
 			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);
 			this.setImageIcon(new ImageIcon(this.image));
 		}
@@ -32,27 +31,20 @@ public class Element implements IElement{
 		}
 		this.setType(type);
 	}
-	public Element(Direction type){
+	public Element(Direction movement){
 		try{	
-			
-			this.imagePlayer = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74336.png"))).getSubimage(this.getXSpriteImagePlayer(type), this.getYSpriteImagePlayer(type), this.width, this.height);	
+			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74336.png"))).getSubimage(this.getXSpriteImagePlayer(movement), this.getYSpriteImagePlayer(movement), this.width, this.height);	
 			this.setImageIcon(new ImageIcon(this.image));
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
-		this.setTypePlayer(type);
+		this.setMovement(movement);
 	}
 
 
 	public BufferedImage getImage() {
 		return image;
-	}
-	public BufferedImage getImagePlayer() {
-		return imagePlayer;
-	}
-	public void setImagePlayer(BufferedImage imagePlayer) {
-		this.imagePlayer = imagePlayer;
 	}
 	
 
@@ -63,18 +55,10 @@ public class Element implements IElement{
 	public Environment getType() {
 		return type;
 	}
-	public Direction getTypePlayer() {
-		return movement;
-	}
-	
 
 	public void setType(Environment type) {
 		this.type = type;
 	}
-	public void setTypePlayer(Direction movement) {
-		this.movement = movement;
-	}
-	
 	
 	public ImageIcon getImageIcon() {
 		return imageIcon;
@@ -94,6 +78,21 @@ public class Element implements IElement{
 		break;
 		case UP: tempV = 32;
 		break;
+		}
+	return tempV;
+	}
+	public int getYSpriteImagePlayer(Direction movement){
+		int tempV = 0;
+		switch(movement){
+		case DOWN: tempV = 0;
+		break;
+		case LEFT: tempV = 16;
+		break;
+		case RIGHT : tempV = 48;
+		break;
+		case UP: tempV = 80;
+		break;
+		
 		}
 	return tempV;
 	}
@@ -121,23 +120,6 @@ public class Element implements IElement{
 	return tempV;
 	}
 	
-	public int getYSpriteImagePlayer(Direction movement){
-		int tempV = 0;
-		switch(movement){
-		case DOWN: tempV = 0;
-		break;
-		case LEFT: tempV = 16;
-		break;
-		case RIGHT : tempV = 48;
-		break;
-		case UP: tempV = 80;
-		break;
-		
-		}
-	return tempV;
-	}
-	
-	
 	public int getYSpriteImage(Environment type){
 		int tempV = 0;
 		switch(type){
@@ -159,6 +141,12 @@ public class Element implements IElement{
 		break;
 		}
 	return tempV;
+	}
+	public Direction getMovement() {
+		return movement;
+	}
+	public void setMovement(Direction movement) {
+		this.movement = movement;
 	}
 
 

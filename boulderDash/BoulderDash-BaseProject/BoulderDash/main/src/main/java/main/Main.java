@@ -24,7 +24,7 @@ public abstract class Main{
 		}
     	
     	
-    	//controller.getModel().getMap().addElement(20, 20, new Element(Environment.WALL));
+    	controller.getModel().getMap().addElement(20, 20, new Element(Environment.WALL));
     	
     	 	
     }

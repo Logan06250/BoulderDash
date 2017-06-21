@@ -9,8 +9,8 @@ public class MapGame implements IMapGame{
 	private IElement grid[][] = new Element[50][50];
 	private int diamondNumber = 0;
 	private Player player;
-	
-	
+
+
 	public MapGame(int levelInt) throws SQLException{
 		this.generateMap(levelInt);
 	}
@@ -32,18 +32,18 @@ public class MapGame implements IMapGame{
 	public void setDiamondNumber(int diamondNumber) {
 		this.diamondNumber = diamondNumber;
 	}
-	
+
 	public Player getPlayer(){
 		return player;
 	}
-	
+
 	public void generateMap(int levelId) throws SQLException{
-		
+
 		int result[] = new int[900];
 		int incr = 1;
 		BoulderDashBDDConnector connection = new BoulderDashBDDConnector();
 		connection.getLevelByLevelId(levelId, result);
-			
+
 		for(int i = 1; i <= 22; i++){
 			for(int j = 1; j <= 40; j++){
 				Environment tempV = Environment.MUD;
@@ -58,28 +58,15 @@ public class MapGame implements IMapGame{
 				case 8 : tempV = Environment.FINISHER; break;
 				}
 				try{
-					Element element = new Element(tempV);
-				this.addElement(j, i, element);
-				}
-				catch(Exception e){
-					System.out.println(e);
-				}
-				incr++;
-			}
-		}
-		
-		
-		
-		for(int i = 1; i <= 22; i++){
-			for(int j = 1; j <= 40; j++){
-				Direction tempV = Direction.DOWN;
-				switch (result[incr]){
-				
-				case 7 : tempV = Direction.DOWN; break;
-				}
-				try{
-					Element element = new Element(tempV);
-				this.addElement(j, i, element);
+					if(result[incr] == 7){
+						Element element = new Element(Direction.DOWN);
+						this.addElement(j, i, element);
+					}
+					else{
+						Element element = new Element(tempV);
+						this.addElement(j, i, element);
+					}
+
 				}
 				catch(Exception e){
 					System.out.println(e);
