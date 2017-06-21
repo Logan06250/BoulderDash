@@ -8,13 +8,14 @@ import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Map;
+import model.IMapGame;
+import model.MapGame;
 
 public class MapTest {
-	private Map map;
+	private IMapGame map;
 	@Before
 	public void setUp() throws SQLException{
-		this.map = new Map(1);
+		this.map = new MapGame(1);
 	}
 	@Test
 	public void testGetDiamondNumber(){

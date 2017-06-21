@@ -2,6 +2,8 @@ package controller;
 
 import java.sql.SQLException;
 
+import javax.swing.text.View;
+
 import model.IModel;
 import view.IView;
 
@@ -10,8 +12,6 @@ public class ControllerFacade implements IController {
 
 
     private final IView  view;
-
-
     private final IModel model;
 
 
@@ -23,7 +23,7 @@ public class ControllerFacade implements IController {
 
 
     public void start() throws SQLException {
-        
+        view.startGame(this.model.getMap());
     }
 
 

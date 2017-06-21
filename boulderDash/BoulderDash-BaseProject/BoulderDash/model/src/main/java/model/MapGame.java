@@ -3,23 +3,26 @@ package model;
 import java.sql.SQLException;
 
 import model.dao.BoulderDashBDDConnector;
+import view.IElement;
 
-public class Map {
-	private Element grid[][];
+public class MapGame implements IMapGame{
+	private Element grid[][] = new Element[50][50];
 	private int diamondNumber = 0;
 	private Player player;
 	
 	
-	public Map(int levelInt) throws SQLException{
+	public MapGame(int levelInt) throws SQLException{
 		player = new Player();
-		Element grid[][] = new Element[41][23];
 		this.generateMap(levelInt);
 	}
 	public void addElement(int posX, int posY, Element element){
 		this.grid[posX][posY] = element;
 	}
-	public Element[][] getGrid() {
-		return grid;
+	public IElement getElementOfGrid(int posX, int posY){
+		return this.grid[posX][posY];
+	}
+	public IElement[][] getGrid() {
+		return this.grid;
 	}
 	public void setGrid(Element[][] grid) {
 		this.grid = grid;
@@ -42,8 +45,8 @@ public class Map {
 		BoulderDashBDDConnector connection = new BoulderDashBDDConnector();
 		connection.getLevelByLevelId(levelId, result);
 			
-		for(int i = 1; i < 22; i++){
-			for(int j = 1; j < 40; j++){
+		for(int i = 1; i <= 22; i++){
+			for(int j = 1; j <= 40; j++){
 				Environment tempV = Environment.MUD;
 				switch (result[incr]){
 				case 1 : tempV = Environment.NOTHING; break;

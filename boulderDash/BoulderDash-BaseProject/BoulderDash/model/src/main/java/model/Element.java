@@ -1,20 +1,26 @@
 package model;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+import view.IElement;
 
 
-public class Element {
+public class Element implements IElement{
 
 	private final int width = 16;
 	private final int height = 16;
 	
 	private Environment type;
 	private BufferedImage image;
+	private ImageIcon imageIcon;
 
 	public Element(Environment type){
 		try{
-			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);			
+			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);		
+			this.setImageIcon(new ImageIcon(this.image));
 		}
 		catch(Exception e){
 			System.out.println(e);
@@ -37,6 +43,15 @@ public class Element {
 	public void setType(Environment type) {
 		this.type = type;
 	}
+	
+	public ImageIcon getImageIcon() {
+		return imageIcon;
+	}
+
+	public void setImageIcon(ImageIcon imageIcon) {
+		this.imageIcon = imageIcon;
+	}
+
 	
 	public int getXSpriteImage(Environment type){
 		int tempV = 0;
@@ -83,6 +98,7 @@ public class Element {
 		}
 	return tempV;
 	}
+
 
 
 }

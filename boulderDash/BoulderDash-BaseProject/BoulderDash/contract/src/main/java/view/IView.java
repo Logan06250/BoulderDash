@@ -1,5 +1,8 @@
 package view;
 
+import model.IMapGame;
+import model.IModel;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -15,4 +18,8 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+    void showMenu();
+    void showGame();
+	void updateGame();
+	void startGame(IMapGame iMapGame);
 }

@@ -1,10 +1,16 @@
 package model;
 
+import view.IElement;
+
 public class MapMotion {
-	private Map map;
+	private IMapGame map;
+	
+	public MapMotion(IMapGame map){
+		this.map = map;
+	}
 	
 	public void moveElement(Direction direction, int posX, int posY){
-		Element bufferedElement = this.map.getGrid()[posX][posY];
+		IElement bufferedElement = this.map.getElementOfGrid(posX, posY);
 		this.map.getGrid()[posX][posY] = new Element(Environment.NOTHING);
 		switch(direction){
 		case UP:
