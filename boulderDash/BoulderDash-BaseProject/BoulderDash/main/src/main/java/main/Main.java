@@ -19,6 +19,7 @@ public abstract class Main{
     	while(true){
 	    	Thread.sleep(100);
 	    	controller.getView().updateGame();
+	    	controller.getModel().getMap().autoUpdateMap();
     	}
     	 	
     }

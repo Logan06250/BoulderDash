@@ -22,14 +22,13 @@ public class ViewFacade implements IView {
 	
 	@Override
 	public void showMenu() {
-
 	}
 	
 	@Override
 	public void updateGame() {
 		frame.getPanel().revalidate();
-		frame.setSize(910,900);
-		frame.setSize(900, 900);
+		frame.setSize(905,900);
+		frame.setSize(900,900);
 	}
 
 	@Override

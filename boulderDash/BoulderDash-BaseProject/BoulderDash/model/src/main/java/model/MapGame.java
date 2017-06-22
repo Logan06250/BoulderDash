@@ -32,34 +32,74 @@ public class MapGame implements IMapGame{
 	public void setDiamondNumber(int diamondNumber) {
 		this.diamondNumber = diamondNumber;
 	}
-
-	public void moveElement(model.IDirection.Direction direction, int posX, int posY){
+	
+	public void autoUpdateMap(){
+		for(int i = 1; i <= 22; i++){
+			for(int j = 1; j <= 40; j++){
+				if(this.grid[j][i].getType() == model.IEnvironment.Environment.ROCK){
+					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING ||this.grid[j][i+1].getType() == model.IEnvironment.Environment.STARTER){
+						this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
+						this.grid[j][i+1] = new Element(model.IEnvironment.Environment.ROCK);
+					}
+					
+				}
+			}
+		}
+		for(int i = 1; i <= 22; i++){
+			for(int j = 1; j <= 40; j++){
+				if(this.grid[j][i].getType() == model.IEnvironment.Environment.DIAMOND){
+					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING){
+						this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
+						this.grid[j][i+1] = new Element(model.IEnvironment.Environment.DIAMOND);
+					}
+					
+				}
+			}
+		}
+	}
+	
+	public void movingPlayer(model.IDirection.Direction direction, int posX, int posY){
 		this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
 		switch(direction){
 		case DOWN:
+			if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.WALL || this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.MONSTER){
+				this.grid[posX][posY] = new Element(direction);
+			}else{
 			this.grid[posX][posY+1] = new Element(direction);
 			playerY++;
+			}
 			break;
 		case UP:
+			if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.WALL || this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.MONSTER){
+				this.grid[posX][posY] = new Element(direction);
+			}else{
 			this.grid[posX][posY-1] = new Element(direction);
 			playerY--;
+			}
 			break;
 		case RIGHT:
+			if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.WALL || this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.MONSTER){
+				this.grid[posX][posY] = new Element(direction);
+			}else{
 			this.grid[posX+1][posY] = new Element(direction);
 			playerX++;
+			}
 			break;
 		case LEFT:
+			if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.WALL || this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.MONSTER){
+				this.grid[posX][posY] = new Element(direction);
+			}else{
 			this.grid[posX-1][posY] = new Element(direction);
 			playerX--;
+			}
 			break;
 		}
 	}
 
 	public void movePlayer(model.IDirection.Direction direction){
 
-		moveElement(direction, playerX, playerY);
+		movingPlayer(direction, playerX, playerY);
 	}
-
 
 	public void generateMap(int levelId) throws SQLException{
 

@@ -11,5 +11,4 @@ public interface IEnvironment {
 		STARTER,
 		FINISHER
 	}
-
 }

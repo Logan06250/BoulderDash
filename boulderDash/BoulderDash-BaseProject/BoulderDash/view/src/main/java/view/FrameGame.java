@@ -63,10 +63,6 @@ class TitreKeyListener implements KeyListener {
 		if(e.getKeyCode() == 40){
 			model.getMap().movePlayer(Direction.DOWN);
 		}
-
-
-
-
 	}
 
 	public void keyReleased(KeyEvent e) {

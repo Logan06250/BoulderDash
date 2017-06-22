@@ -9,7 +9,8 @@ public interface IMapGame {
 	public void setDiamondNumber(int nb);
 	public void setGrid(IElement[][] grid);
 	public void addElement(int i, int j, IElement element);
-	public void moveElement(model.IDirection.Direction direction, int posX, int posY);
+	public void movingPlayer(model.IDirection.Direction direction, int posX, int posY);
 	public void movePlayer(Direction direction);
+	public void autoUpdateMap();
 
 }
