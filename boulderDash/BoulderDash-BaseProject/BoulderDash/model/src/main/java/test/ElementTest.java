@@ -11,7 +11,7 @@ public class ElementTest {
 	private Element element;
 	private Element player;
 	@Before
-	public void setUp(){
+	public void setUpBefore(){
 		this.element = new Element(IEnvironment.Environment.WALL);
 		this.player = new Element(IDirection.Direction.DOWN);
 	}
