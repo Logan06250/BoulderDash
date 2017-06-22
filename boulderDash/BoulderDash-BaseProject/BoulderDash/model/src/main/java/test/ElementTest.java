@@ -44,7 +44,7 @@ public class ElementTest {
 	}
 	@Test
 	public void testGetYSpriteImagePlayer(){
-		int expected = 16;
+		int expected = 0;
 		assertEquals(expected, player.getYSpriteImagePlayer(IDirection.Direction.DOWN));
 	}
 	@Test
@@ -55,6 +55,6 @@ public class ElementTest {
 	@Test
 	public void testGetYSpriteImage(){
 		int expected = 0;
-		assertEquals(expected, element.getYSpriteImage(IEnvironment.Environment.NOTHING));
+		assertEquals(expected, element.getYSpriteImage(element.getType()));
 	}
 }
