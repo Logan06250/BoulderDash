@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.Element;
-import model.Environment;
+import model.IEnvironment;
 import model.IMapGame;
 import model.MapGame;
 
@@ -31,12 +31,12 @@ public class MapTest {
 	}
 	@Test
 	public void testGetGrid() throws SQLException{
-		Element expected = new Element(Environment.WALL);
+		Element expected = new Element(IEnvironment.Environment.WALL);
 		assertEquals(expected, this.map.getGrid()[1][1]);
 	}
 	@Test
 	public void testSetGrid(){
-		Element expected = new Element(Environment.MUD);
+		Element expected = new Element(IEnvironment.Environment.MUD);
 		this.map.setGrid(new Element[1][1]);
 		assertEquals(expected, this.map.getGrid()[1][1]);
 	}
