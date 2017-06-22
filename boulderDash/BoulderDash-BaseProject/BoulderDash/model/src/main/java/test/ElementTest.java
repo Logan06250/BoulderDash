@@ -17,7 +17,7 @@ public class ElementTest {
 	}
 	@Test
 	public void testGetType(){
-		IEnvironment.Environment expected = IEnvironment.Environment.DIAMOND;
+		IEnvironment.Environment expected = IEnvironment.Environment.WALL;
 		assertEquals(expected, element.getType());
 	}
 	@Test
@@ -49,12 +49,12 @@ public class ElementTest {
 	}
 	@Test
 	public void testGetXSpriteImage(){
-		int expected = 64;
+		int expected = 96;
 		assertEquals(expected, element.getXSpriteImage(element.getType()));
 	}
 	@Test
 	public void testGetYSpriteImage(){
-		int expected = 16;
+		int expected = 0;
 		assertEquals(expected, element.getYSpriteImage(IEnvironment.Environment.NOTHING));
 	}
 }
