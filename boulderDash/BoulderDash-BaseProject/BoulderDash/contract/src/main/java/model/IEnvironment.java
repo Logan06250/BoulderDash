@@ -8,7 +8,7 @@ public interface IEnvironment {
 		DIAMOND,
 		ROCK,
 		MONSTER,
-		STARTER,
+		PLAYER,
 		FINISHER
 	}
 }

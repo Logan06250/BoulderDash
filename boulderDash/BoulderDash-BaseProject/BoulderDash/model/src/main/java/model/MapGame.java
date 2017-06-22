@@ -37,7 +37,7 @@ public class MapGame implements IMapGame{
 		for(int i = 1; i <= 22; i++){
 			for(int j = 1; j <= 40; j++){
 				if(this.grid[j][i].getType() == model.IEnvironment.Environment.ROCK){
-					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING ||this.grid[j][i+1].getType() == model.IEnvironment.Environment.STARTER){
+					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING ||this.grid[j][i+1].getType() == model.IEnvironment.Environment.PLAYER){
 						this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
 						this.grid[j][i+1] = new Element(model.IEnvironment.Environment.ROCK);
 					}
@@ -118,7 +118,7 @@ public class MapGame implements IMapGame{
 				case 4 : tempV = model.IEnvironment.Environment.DIAMOND; break;
 				case 5 : tempV = model.IEnvironment.Environment.MONSTER; break;
 				case 6 : tempV = model.IEnvironment.Environment.ROCK; break;
-				case 7 : tempV = model.IEnvironment.Environment.STARTER; break;
+				case 7 : tempV = model.IEnvironment.Environment.PLAYER; break;
 				case 8 : tempV = model.IEnvironment.Environment.FINISHER; break;
 				}
 				try{

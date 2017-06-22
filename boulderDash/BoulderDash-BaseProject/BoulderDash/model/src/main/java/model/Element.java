@@ -29,7 +29,7 @@ public class Element implements IElement{
 		this.setType(type);
 	}
 	public Element(model.IDirection.Direction movement){
-		this.type = model.IEnvironment.Environment.STARTER;
+		this.type = model.IEnvironment.Environment.PLAYER;
 		try{	
 			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74336.png"))).getSubimage(this.getXSpriteImagePlayer(movement), this.getYSpriteImagePlayer(movement), this.width, this.height);	
 			this.setImageIcon(new ImageIcon(this.image));
@@ -118,7 +118,7 @@ public class Element implements IElement{
 		break;
 		case MONSTER: tempV = 112;
 		break;
-		case STARTER: tempV = 128;
+		case PLAYER: tempV = 128;
 		break;
 		case FINISHER: tempV = 128;
 		break;
@@ -141,7 +141,7 @@ public class Element implements IElement{
 		break;
 		case MONSTER: tempV = 0;
 		break;
-		case STARTER: tempV = 0;
+		case PLAYER: tempV = 0;
 		break;
 		case FINISHER: tempV = 16;
 		break;

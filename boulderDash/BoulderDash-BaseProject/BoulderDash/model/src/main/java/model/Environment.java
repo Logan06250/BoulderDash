@@ -7,6 +7,6 @@ public enum Environment {
 	DIAMOND,
 	ROCK,
 	MONSTER,
-	STARTER,
+	PLAYER,
 	FINISHER
 }
