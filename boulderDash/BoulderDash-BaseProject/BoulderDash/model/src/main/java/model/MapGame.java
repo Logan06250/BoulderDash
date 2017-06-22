@@ -5,14 +5,20 @@ import java.sql.SQLException;
 import model.dao.BoulderDashBDDConnector;
 
 public class MapGame implements IMapGame{
-	private IElement grid[][] = new Element[50][50];
-	private int diamondNumber = 0;
+	private IElement grid[][] = new Element[41][23];
+	private int diamondNumber;
+	private int diamondToFinish;
 
-	int playerX;
-	int playerY;
+	private int playerX;
+	private int playerY;
+	private boolean playerAlive;
 
 	public MapGame(int levelInt) throws SQLException{
+		this.playerAlive = true;
+		this.diamondNumber = 0;
+		this.diamondToFinish = 0;
 		this.generateMap(levelInt);
+
 	}
 	public void addElement(int posX, int posY, IElement element){
 		this.grid[posX][posY] = element;
@@ -32,67 +38,113 @@ public class MapGame implements IMapGame{
 	public void setDiamondNumber(int diamondNumber) {
 		this.diamondNumber = diamondNumber;
 	}
-	
+
 	public void autoUpdateMap(){
 		for(int i = 1; i <= 22; i++){
 			for(int j = 1; j <= 40; j++){
 				if(this.grid[j][i].getType() == model.IEnvironment.Environment.ROCK){
-					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING ||this.grid[j][i+1].getType() == model.IEnvironment.Environment.PLAYER){
-						this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
-						this.grid[j][i+1] = new Element(model.IEnvironment.Environment.ROCK);
+					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING){
+						if(this.grid[j][i+2].getType() == model.IEnvironment.Environment.PLAYER){
+							IElement tempElement = this.grid[j][i];
+							IElement tempElement2 = this.grid[j][i+1];
+							this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
+							this.grid[j][i+1] = tempElement2;
+							this.grid[j][i+2] = tempElement;
+							this.playerAlive = false;
+						}else{
+							IElement tempElement = this.grid[j][i];
+							this.grid[j][i] = this.grid[j][i+1];
+							this.grid[j][i+1] = tempElement;
+						}
 					}
-					
 				}
-			}
-		}
-		for(int i = 1; i <= 22; i++){
-			for(int j = 1; j <= 40; j++){
 				if(this.grid[j][i].getType() == model.IEnvironment.Environment.DIAMOND){
 					if(this.grid[j][i+1].getType() == model.IEnvironment.Environment.NOTHING){
-						this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
-						this.grid[j][i+1] = new Element(model.IEnvironment.Environment.DIAMOND);
+						if(this.grid[j][i+2].getType() == model.IEnvironment.Environment.PLAYER){
+							IElement tempElement = this.grid[j][i];
+							IElement tempElement2 = this.grid[j][i+1];
+							this.grid[j][i] = new Element(model.IEnvironment.Environment.NOTHING);
+							this.grid[j][i+1] = tempElement2;
+							this.grid[j][i+2] = tempElement;
+							this.playerAlive = false;
+						}else{
+							IElement tempElement = this.grid[j][i];
+							this.grid[j][i] = this.grid[j][i+1];
+							this.grid[j][i+1] = tempElement;
+						}
 					}
-					
 				}
 			}
 		}
 	}
-	
+
 	public void movingPlayer(model.IDirection.Direction direction, int posX, int posY){
-		this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
-		switch(direction){
-		case DOWN:
-			if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.WALL || this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.MONSTER){
-				this.grid[posX][posY] = new Element(direction);
-			}else{
-			this.grid[posX][posY+1] = new Element(direction);
-			playerY++;
+		if(playerAlive){
+			switch(direction){
+			case DOWN:
+				if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.WALL){
+					this.grid[posX][posY] = new Element(direction);
+				}
+				else if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.DIAMOND){
+					this.grid[posX][posY+1] = new Element(direction);
+					this.diamondNumber++;
+				}else{
+					this.grid[posX][posY+1] = new Element(direction);
+					this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+					playerY++;
+				}
+				break;
+			case UP:
+				if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.WALL){
+					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.DIAMOND){
+					this.grid[posX][posY-1] = new Element(direction);
+					this.diamondNumber++;
+				}else{
+					this.grid[posX][posY-1] = new Element(direction);
+					this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+					playerY--;
+				}
+				break;
+			case RIGHT:
+				if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.WALL){
+					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.ROCK){
+					if(this.grid[posX+2][posY].getType() == model.IEnvironment.Environment.NOTHING || this.grid[posX+2][posY].getType() == model.IEnvironment.Environment.MONSTER){
+						this.grid[posX+2][posY] = this.grid[posX+1][posY];
+						this.grid[posX+1][posY] = new Element(direction);
+						this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+						playerX++;
+					}
+				}else if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.DIAMOND){
+					this.grid[posX+1][posY] = new Element(direction);
+					this.diamondNumber++;
+				}else{
+					this.grid[posX+1][posY] = new Element(direction);
+					this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+					playerX++;
+				}
+				break;
+			case LEFT:
+				if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.WALL){
+					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.ROCK){
+					if(this.grid[posX-2][posY].getType() == model.IEnvironment.Environment.NOTHING || this.grid[posX-2][posY].getType() == model.IEnvironment.Environment.MONSTER){
+						this.grid[posX-2][posY] = this.grid[posX-1][posY];
+						this.grid[posX-1][posY] = new Element(direction);
+						this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+						playerX++;
+					}
+				}else if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.DIAMOND){
+					this.grid[posX-1][posY] = new Element(direction);
+					this.diamondNumber++;
+				}else{
+					this.grid[posX-1][posY] = new Element(direction);
+					this.grid[posX][posY] = new Element(model.IEnvironment.Environment.NOTHING);
+					playerX--;
+				}
+				break;
 			}
-			break;
-		case UP:
-			if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.WALL || this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.MONSTER){
-				this.grid[posX][posY] = new Element(direction);
-			}else{
-			this.grid[posX][posY-1] = new Element(direction);
-			playerY--;
-			}
-			break;
-		case RIGHT:
-			if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.WALL || this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.MONSTER){
-				this.grid[posX][posY] = new Element(direction);
-			}else{
-			this.grid[posX+1][posY] = new Element(direction);
-			playerX++;
-			}
-			break;
-		case LEFT:
-			if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.WALL || this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.ROCK || this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.MONSTER){
-				this.grid[posX][posY] = new Element(direction);
-			}else{
-			this.grid[posX-1][posY] = new Element(direction);
-			playerX--;
-			}
-			break;
 		}
 	}
 
@@ -103,7 +155,7 @@ public class MapGame implements IMapGame{
 
 	public void generateMap(int levelId) throws SQLException{
 
-		int result[] = new int[900];
+		int result[] = new int[881];
 		int incr = 1;
 		BoulderDashBDDConnector connection = new BoulderDashBDDConnector();
 		connection.getLevelByLevelId(levelId, result);
@@ -115,7 +167,7 @@ public class MapGame implements IMapGame{
 				case 1 : tempV = model.IEnvironment.Environment.NOTHING; break;
 				case 2 : tempV = model.IEnvironment.Environment.WALL; break;
 				case 3 : tempV = model.IEnvironment.Environment.MUD; break;
-				case 4 : tempV = model.IEnvironment.Environment.DIAMOND; break;
+				case 4 : tempV = model.IEnvironment.Environment.DIAMOND; diamondToFinish++; break;
 				case 5 : tempV = model.IEnvironment.Environment.MONSTER; break;
 				case 6 : tempV = model.IEnvironment.Environment.ROCK; break;
 				case 7 : tempV = model.IEnvironment.Environment.PLAYER; break;
