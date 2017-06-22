@@ -20,7 +20,7 @@ public class Element implements IElement{
 	public Element(model.IEnvironment.Environment type){
 		this.type = type;
 		try{	
-			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);
+			this.image = (ImageIO.read(new File("sprite/74359.png"))).getSubimage(this.getXSpriteImage(type), this.getYSpriteImage(type), this.width, this.height);
 			this.setImageIcon(new ImageIcon(this.image));
 		}
 		catch(Exception e){
@@ -31,7 +31,7 @@ public class Element implements IElement{
 	public Element(model.IDirection.Direction movement){
 		this.type = model.IEnvironment.Environment.PLAYER;
 		try{	
-			this.image = (ImageIO.read(new File("C:\\Users\\Logan\\Desktop\\74336.png"))).getSubimage(this.getXSpriteImagePlayer(movement), this.getYSpriteImagePlayer(movement), this.width, this.height);	
+			this.image = (ImageIO.read(new File("sprite/74336.png"))).getSubimage(this.getXSpriteImagePlayer(movement), this.getYSpriteImagePlayer(movement), this.width, this.height);	
 			this.setImageIcon(new ImageIcon(this.image));
 		}
 		catch(Exception e){

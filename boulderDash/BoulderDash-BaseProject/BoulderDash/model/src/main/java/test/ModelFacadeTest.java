@@ -18,15 +18,28 @@ public class ModelFacadeTest {
 		this.map = new ModelFacade();
 				}
 	@Test
-	public void testGetMap() throws SQLException {
-		IMapGame expected = new  MapGame(3);
-		assertEquals(expected, this.map.getMap());
+	public void testGetMap(){
+		IMapGame expected = null;
+		try {
+			expected = new  MapGame(3);
+			assertEquals(expected, this.map.getMap());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Test
-	public void testSetMap() throws SQLException{
-		IMapGame expected = new MapGame(2);
-		this.map.setMap(2);
-		assertEquals(expected, this.map.getMap());
+	public void testSetMap(){
+		IMapGame expected = null;
+		try {
+			expected = new MapGame(2);
+			this.map.setMap(2);
+			assertEquals(expected, this.map.getMap());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
