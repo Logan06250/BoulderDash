@@ -31,7 +31,7 @@ public class MapTest {
 		this.map = new MapGame(1);
 	}
 	/**
-	 * Make the addElement's test using getElementOfGrid.
+	 * The addElement's test using getElementOfGrid.
 	 */
 	@Test
 	public void testAddElement(){
@@ -40,7 +40,7 @@ public class MapTest {
 		assertEquals(expected, this.map.getElementOfGrid(1, 1));
 	}
 	/**
-	 * Make the test of getElementOfGrid's .
+	 * The test of getter of ElementOfGrid.
 	 */
 	@Test
 	public void testGetElementOfGrid(){
@@ -48,36 +48,55 @@ public class MapTest {
 		assertEquals(expected, this.map.getElementOfGrid(1, 1));
 	}
 	/**
-	 * Make the addElement test using getElementOfGrid.
+	 * The test of getDiamondNumber.
 	 */
 	@Test
 	public void testGetDiamondNumber(){
 		int expected = 0;
 		assertEquals(expected,this.map.getDiamondNumber());
 	}
+	/**
+	 * The test of the setDiamondNumber.
+	 */
 	@Test
 	public void testSetDiamondNumber(){
 		int expected = 5;
 		this.map.setDiamondNumber(expected);
 		assertEquals(expected,this.map.getDiamondNumber());
 	}
+	/**
+	 * The test of the generator of the map.
+	 */
 	@Test
 	public void testGenerateMap(){
 		fail("didn't know how to make this test");
 	}
+	/**
+	 * The test of the map updating
+	 */
 	@Test
 	public void testAutoUpDateMap(){
 		fail("too long to make on one day");
 	}
+	/**
+	 * The test of the player's moving.
+	 */
 	@Test
 	public void testMovingPlayer(){
 		fail("too long to make on one day");
 	}
+	/**
+	 * The test of getGrid
+	 * @throws SQLException
+	 */
 	@Test
 	public void testGetGrid() throws SQLException{
 	Element expected = new Element(Environment.WALL);
 	assertEquals(expected, this.map.getGrid()[1][1]);
 	}
+	/**
+	 * The test of setGrid
+	 */
 	@Test
 	public void testSetGrid(){
 	IElement expected = new Element(Environment.MUD);
