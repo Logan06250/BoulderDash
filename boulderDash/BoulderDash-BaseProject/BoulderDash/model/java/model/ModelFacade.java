@@ -14,12 +14,13 @@ public class ModelFacade implements IModel {
 	/**
      * The constructor of the class.
      * 
-     * @param
+     * @param id
+     * 		Choose the level.
      * @return 
      *           
      */
-	public ModelFacade() {
-		this.setMap(1);
+	public ModelFacade(int id) {
+		this.setMap(id);
 	}
 	/**
      * The setter of the map

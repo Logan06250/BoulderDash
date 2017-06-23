@@ -15,7 +15,7 @@ public class ModelFacadeTest {
 	ModelFacade map;
 	@Before
 	public void setUp() throws SQLException{
-		this.map = new ModelFacade();
+		this.map = new ModelFacade(1);
 				}
 	@Test
 	public void testGetMap(){

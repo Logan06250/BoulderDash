@@ -181,6 +181,8 @@ public class MapGame implements IMapGame{
 			case DOWN:
 				if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.WALL || this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.ROCK){
 					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.MONSTER){
+					this.playerAlive = false;
 				}else{
 					if(this.grid[posX][posY+1].getType() == model.IEnvironment.Environment.DIAMOND){
 						this.diamondNumber++;
@@ -193,6 +195,8 @@ public class MapGame implements IMapGame{
 			case UP:
 				if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.WALL|| this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.ROCK){
 					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.MONSTER){
+					this.playerAlive = false;
 				}else{
 					if(this.grid[posX][posY-1].getType() == model.IEnvironment.Environment.DIAMOND){
 						this.diamondNumber++;
@@ -205,6 +209,8 @@ public class MapGame implements IMapGame{
 			case RIGHT:
 				if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.WALL){
 					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.MONSTER){
+					this.playerAlive = false;
 				}else if(this.grid[posX+1][posY].getType() == model.IEnvironment.Environment.ROCK){
 					if(this.grid[posX+2][posY].getType() == model.IEnvironment.Environment.NOTHING || this.grid[posX+2][posY].getType() == model.IEnvironment.Environment.MONSTER){
 						this.grid[posX+2][posY] = this.grid[posX+1][posY];
@@ -224,6 +230,8 @@ public class MapGame implements IMapGame{
 			case LEFT:
 				if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.WALL){
 					this.grid[posX][posY] = new Element(direction);
+				}else if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.MONSTER){
+					this.playerAlive = false;
 				}else if(this.grid[posX-1][posY].getType() == model.IEnvironment.Environment.ROCK){
 					if(this.grid[posX-2][posY].getType() == model.IEnvironment.Environment.NOTHING || this.grid[posX-2][posY].getType() == model.IEnvironment.Environment.MONSTER){
 						this.grid[posX-2][posY] = this.grid[posX-1][posY];

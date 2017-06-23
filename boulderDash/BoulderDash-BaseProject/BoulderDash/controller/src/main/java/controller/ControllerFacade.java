@@ -38,6 +38,25 @@ public class ControllerFacade implements IController {
      */
 	public void start() throws SQLException {
 		view.startGame(this.model);
+		try {
+			this.loop();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+     * The getter of the controller
+     * 
+     * @param 
+     * @return
+	 * @throws InterruptedException 
+     */
+	public void loop() throws InterruptedException{
+		while(true){
+	    	Thread.sleep(100);
+	    	this.view.updateGame();
+	    	this.model.getMap().autoUpdateMap();
+    	}
 	}
 	/**
      * The getter of the View
