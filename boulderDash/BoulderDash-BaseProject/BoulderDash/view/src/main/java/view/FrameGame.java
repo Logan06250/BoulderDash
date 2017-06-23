@@ -25,7 +25,6 @@ public class FrameGame extends JFrame{
 		this.panel.setVisible(true);
 		this.panel.setLayout(null);
 		this.panel.setBounds(0, 0, 800, 800);
-		System.out.println("Test1");
 		JLabel label = new JLabel("Pressez une touche...");
 		add(label, BorderLayout.CENTER);
 		label.setBounds(200, 700, 300, 50);

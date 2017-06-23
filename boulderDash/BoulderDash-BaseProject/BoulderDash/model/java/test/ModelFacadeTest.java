@@ -21,7 +21,7 @@ public class ModelFacadeTest {
 	public void testGetMap(){
 		IMapGame expected = null;
 		try {
-			expected = new  MapGame(3);
+			expected = new  MapGame(2);
 			assertEquals(expected, this.map.getMap());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

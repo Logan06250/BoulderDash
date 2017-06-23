@@ -7,8 +7,7 @@ public class ModelFacade implements IModel {
 	IMapGame map;
 
 	public ModelFacade() {
-		super();
-		this.setMap(3);
+		this.setMap(1);
 	}
 
 	public void setMap(int id){

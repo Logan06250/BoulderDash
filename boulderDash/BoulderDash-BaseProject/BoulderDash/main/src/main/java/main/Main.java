@@ -15,18 +15,10 @@ public abstract class Main{
     	ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
     	controller.start();
-    	int cpt = 1;
     	while(true){
-	    	Thread.sleep(200);
+	    	Thread.sleep(500);
 	    	controller.getView().updateGame();
-	    	if(cpt > 2){
 	    	controller.getModel().getMap().autoUpdateMap();
-	    	cpt = 0;
-	    	}
-	    	cpt++;
     	}
-    	 	
     }
-
-
 }
