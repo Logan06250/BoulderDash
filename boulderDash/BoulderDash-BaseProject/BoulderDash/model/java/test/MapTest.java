@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.sql.SQLException;
 
@@ -8,37 +9,79 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.Element;
-import model.IEnvironment;
+import model.IElement;
+import model.IEnvironment.Environment;
 import model.IMapGame;
 import model.MapGame;
+/**
+ * Provides all test for the MapGame.
+ *
+ * @author Lamouar Logan (logan.lamouar@viacesi.fr), Mickael Calvier (mickael.calvier@viacesi.fr), Sylvain Lerest (Sylvain.lerest@viacesi.fr)
+ * @version 1.1
+ */
 
 public class MapTest {
 	private IMapGame map;
+	/**
+	 * Instantiate map with the constructor in MapGame.
+	 * @throws SQLException
+	 */
 	@Before
 	public void setUp() throws SQLException{
 		this.map = new MapGame(1);
 	}
+	/**
+	 * Make the addElement's test using getElementOfGrid.
+	 */
+	@Test
+	public void testAddElement(){
+		IElement expected = new Element(Environment.WALL);
+		this.map.addElement(2, 2, expected);
+		assertEquals(expected, this.map.getElementOfGrid(1, 1));
+	}
+	/**
+	 * Make the test of getElementOfGrid's .
+	 */
+	@Test
+	public void testGetElementOfGrid(){
+		IElement expected = new Element(Environment.WALL);
+		assertEquals(expected, this.map.getElementOfGrid(1, 1));
+	}
+	/**
+	 * Make the addElement test using getElementOfGrid.
+	 */
 	@Test
 	public void testGetDiamondNumber(){
 		int expected = 0;
-		assertEquals(expected,map.getDiamondNumber());
+		assertEquals(expected,this.map.getDiamondNumber());
 	}
 	@Test
 	public void testSetDiamondNumber(){
-		int expected = 2;
-		map.setDiamondNumber(expected);
-		assertEquals(expected,map.getDiamondNumber());
+		int expected = 5;
+		this.map.setDiamondNumber(expected);
+		assertEquals(expected,this.map.getDiamondNumber());
+	}
+	@Test
+	public void testGenerateMap(){
+		fail("didn't know how to make this test");
+	}
+	@Test
+	public void testAutoUpDateMap(){
+		fail("too long to make on one day");
+	}
+	@Test
+	public void testMovingPlayer(){
+		fail("too long to make on one day");
 	}
 	@Test
 	public void testGetGrid() throws SQLException{
-		Element expected = new Element(IEnvironment.Environment.WALL);
-		assertEquals(expected, this.map.getGrid()[1][1]);
+	Element expected = new Element(Environment.WALL);
+	assertEquals(expected, this.map.getGrid()[1][1]);
 	}
 	@Test
 	public void testSetGrid(){
-		Element expected = new Element(IEnvironment.Environment.MUD);
-		this.map.setGrid(new Element[1][1]);
-		assertEquals(expected, this.map.getGrid()[1][1]);
+	IElement expected = new Element(Environment.MUD);
+	this.map.setGrid(new Element[1][1]);
+	assertEquals(expected, this.map.getGrid()[1][1]);
 	}
-
 }
