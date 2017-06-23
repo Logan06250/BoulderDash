@@ -23,7 +23,8 @@ public class ViewFacade implements IView {
 	}
 	/**
 	 *method which print a message
-	 * @return message
+	 * @param message
+	 * 	the message who have been to be displayed
 	 */
 	@Override
 	public final void displayMessage(final String message) {
@@ -47,6 +48,8 @@ public class ViewFacade implements IView {
 	}
 	/**
 	*Method who start the displaying of the game
+	*@param model
+	*	The model for the frame
 	*/
 	@Override
 	public void startGame(IModel model) {

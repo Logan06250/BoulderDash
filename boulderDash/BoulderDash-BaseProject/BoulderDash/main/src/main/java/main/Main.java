@@ -19,6 +19,8 @@ public abstract class Main{
      * @param args
      * 		When we call this program, we can add parameters.         
      */
+	
+	//hello
     public static void main(final String[] args) throws SQLException, InterruptedException {
     	ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(2));
 
