@@ -8,15 +8,19 @@ package view;
 
 import java.awt.Graphics;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.IElement;
 import model.IMapGame;
 import model.IModel;
 
 public class PanelGame extends JPanel{
 
 	private static final long serialVersionUID = 1L;
+	IModel model;
 	IMapGame map;
+	JLabel diamondLabel;
 	/**
 	 * The constructor of the class
 	 * @param model
@@ -24,6 +28,11 @@ public class PanelGame extends JPanel{
 	 */
 	public PanelGame(IModel model){
 		this.map = model.getMap();
+		this.model = model;
+		this.diamondLabel = new JLabel(model.getMap().getDiamondNumber() + " / " + model.getMap().getDiamondToFinish());
+		this.add(diamondLabel);
+		this.diamondLabel.setBounds(680, 20, 100, 30);
+		this.diamondLabel.setVisible(true);
 	}
 	/**
 	 *The method who paint the frame
@@ -36,6 +45,8 @@ public class PanelGame extends JPanel{
 				g.drawImage(map.getGrid()[j][i].getImage(), j*16, i*16, this);
 			}
 		}
+		g.drawImage(model.getMap().getDiamondElement().getImage(), 660, 25, this);
+		this.diamondLabel.setText(model.getMap().getDiamondNumber() + " / " + model.getMap().getDiamondToFinish());
 	}
 	/**
 	 *The method who repaint the frame.
@@ -48,5 +59,6 @@ public class PanelGame extends JPanel{
 				g.drawImage(map.getGrid()[j][i].getImage(), j*16, i*16, this);
 			}
 		}
+		this.diamondLabel.setText(model.getMap().getDiamondNumber() + " / " + model.getMap().getDiamondToFinish());
 	}
 }

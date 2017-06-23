@@ -18,5 +18,7 @@ public interface IMapGame {
 	public void movingPlayer(model.IDirection.Direction direction, int posX, int posY);
 	public void movePlayer(Direction direction);
 	public void autoUpdateMap();
+	public IElement getDiamondElement();
+	public int getDiamondToFinish();
 
 }

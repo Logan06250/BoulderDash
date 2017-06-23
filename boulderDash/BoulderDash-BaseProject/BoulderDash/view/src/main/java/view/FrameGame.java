@@ -6,12 +6,10 @@
  */
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import model.IDirection.Direction;
 import model.IModel;
@@ -24,6 +22,7 @@ public class FrameGame extends JFrame{
 
 
 	private PanelGame panel;
+	
 	/**
 	 *The constructor of the FrameGame
 	 * @param model
@@ -35,9 +34,7 @@ public class FrameGame extends JFrame{
 		this.panel.setVisible(true);
 		this.panel.setLayout(null);
 		this.panel.setBounds(0, 0, 800, 800);
-		JLabel label = new JLabel("Pressez une touche...");
-		add(label, BorderLayout.CENTER);
-		label.setBounds(200, 700, 300, 50);
+
 		addKeyListener(new TitreKeyListener(model));
 
 		pack();

@@ -11,9 +11,16 @@ import java.sql.SQLException;
 import model.dao.BoulderDashBDDConnector;
 public class MapGame implements IMapGame{
 	private IElement grid[][] = new Element[41][23];
+	private IElement diamondElement;
 	private int diamondNumber;
 	private int diamondToFinish;
 
+	public int getDiamondToFinish() {
+		return diamondToFinish;
+	}
+	public void setDiamondToFinish(int diamondToFinish) {
+		this.diamondToFinish = diamondToFinish;
+	}
 	private int playerX;
 	private int playerY;
 	private boolean playerAlive;
@@ -26,6 +33,7 @@ public class MapGame implements IMapGame{
 		this.playerAlive = true;
 		this.diamondNumber = 0;
 		this.diamondToFinish = 0;
+		this.setDiamondElement(new Element(model.IEnvironment.Environment.DIAMOND));
 		this.generateMap(levelInt);
 
 	}
@@ -285,5 +293,11 @@ public class MapGame implements IMapGame{
 				incr++;
 			}
 		}
+	}
+	public IElement getDiamondElement() {
+		return diamondElement;
+	}
+	public void setDiamondElement(IElement diamondElement) {
+		this.diamondElement = diamondElement;
 	}
 }

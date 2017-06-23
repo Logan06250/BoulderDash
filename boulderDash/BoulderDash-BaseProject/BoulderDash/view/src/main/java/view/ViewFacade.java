@@ -39,8 +39,8 @@ public class ViewFacade implements IView {
 	@Override
 	public void updateGame() {
 		frame.getPanel().revalidate();
-		frame.setSize(905,420);
-		frame.setSize(900,420);
+		frame.setSize(755,420);
+		frame.setSize(750,420);
 	}
 	@Override
 	public void showGame() {
@@ -54,7 +54,7 @@ public class ViewFacade implements IView {
 	            public void run() {
 	                frame = new FrameGame(model);
 	                frame.setVisible(true);
-	        		frame.setSize(900, 420);
+	        		frame.setSize(750, 420);
 	            }
 	        });
 	}
