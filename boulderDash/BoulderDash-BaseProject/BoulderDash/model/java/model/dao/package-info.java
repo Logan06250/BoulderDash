@@ -1,7 +1,7 @@
 /**
- * Provides all classes for the DAO.
+ * Provides all classes for the DAO component.
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Lamouar Logan (logan.lamouar@viacesi.fr), Mickael Calvier (mickael.calvier@viacesi.fr), Sylvain Lerest (Sylvain.lerest@viacesi.fr)
+ * @version 1.1
  */
 package model.dao;

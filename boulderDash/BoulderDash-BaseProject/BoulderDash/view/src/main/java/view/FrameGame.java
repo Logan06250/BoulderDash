@@ -1,3 +1,9 @@
+/**
+ * Provides all classes for the view component.
+ *
+ * @author Lamouar Logan (logan.lamouar@viacesi.fr), Mickael Calvier (mickael.calvier@viacesi.fr), Sylvain Lerest (Sylvain.lerest@viacesi.fr)
+ * @version 1.1
+ */
 package view;
 
 import java.awt.BorderLayout;
@@ -18,7 +24,13 @@ public class FrameGame extends JFrame{
 
 
 	private PanelGame panel;
-
+	/**
+	 *The constructor of the FrameGame
+	 * @param model
+	 * 		the model for the frame
+	 * @return 
+	 * 
+	 */
 	public FrameGame(IModel model){
 		this.panel = new PanelGame(model);
 		this.setContentPane(this.panel);	
@@ -32,11 +44,22 @@ public class FrameGame extends JFrame{
 
 		pack();
 	}
-
+	/**
+	 *The getter of the panel.
+	 * @param 
+	 * @return panel
+	 * 		Return the panel of the frame
+	 */
 	public PanelGame getPanel() {
 		return panel;
 	}
-
+	/**
+    *The setter of the panel.
+    * @param panel
+    * 		The new panel of the class.
+    * @return 
+    * 
+    */
 	public void setPanel(PanelGame panel) {
 		this.panel = panel;
 	}
@@ -44,11 +67,21 @@ public class FrameGame extends JFrame{
 
 class TitreKeyListener implements KeyListener {
 	private final IModel model;
-
+	/**
+    *The listener of the keys.
+    * @param model
+    * @return 
+    * 
+    */
 	public TitreKeyListener(IModel model) {
 		this.model = model;
 	}
-
+	/**
+    *The method who detect the key pressed.
+    * @param e
+    * @return 
+    * 
+    */
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == 37){
 			model.getMap().movePlayer(Direction.LEFT);
@@ -63,11 +96,21 @@ class TitreKeyListener implements KeyListener {
 			model.getMap().movePlayer(Direction.DOWN);
 		}
 	}
-
+	/**
+    *The method who detect the key released.
+    * @param e
+    * @return 
+    * 
+    */
 	public void keyReleased(KeyEvent e) {
 
 	}
-
+	/**
+    *The method who detect the key typed.
+    * @param e
+    * @return 
+    * 
+    */
 	public void keyTyped(KeyEvent e) {
 	}
 }
