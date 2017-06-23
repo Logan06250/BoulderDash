@@ -212,7 +212,7 @@ public class Element implements IElement{
 		break;
 		case ROCK: tempV = 48;
 		break;
-		case MONSTER: tempV = 112;
+		case MONSTER: tempV = 144;
 		break;
 		case PLAYER: tempV = 128;
 		break;
@@ -232,21 +232,21 @@ public class Element implements IElement{
 	public int getYSpriteImage(model.IEnvironment.Environment type){
 		int tempV = 0;
 		switch(type){
-		case NOTHING: tempV = 16;
+		case NOTHING: tempV = 16+128;
 		break;
-		case WALL: tempV = 0;
+		case WALL: tempV = 0+128;
 		break;
-		case MUD : tempV = 0;
+		case MUD : tempV = 0+128;
 		break;
-		case DIAMOND: tempV = 0;
+		case DIAMOND: tempV = 0+128;
 		break;
-		case ROCK: tempV = 0;
+		case ROCK: tempV = 0+128;
 		break;
-		case MONSTER: tempV = 0;
+		case MONSTER: tempV = 0+128;
 		break;
-		case PLAYER: tempV = 0;
+		case PLAYER: tempV = 0+128;
 		break;
-		case FINISHER: tempV = 16;
+		case FINISHER: tempV = 16+128;
 		break;
 		}
 	return tempV;
