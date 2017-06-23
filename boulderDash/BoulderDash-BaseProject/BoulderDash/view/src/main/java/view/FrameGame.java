@@ -28,8 +28,6 @@ public class FrameGame extends JFrame{
 	 *The constructor of the FrameGame
 	 * @param model
 	 * 		the model for the frame
-	 * @return 
-	 * 
 	 */
 	public FrameGame(IModel model){
 		this.panel = new PanelGame(model);
@@ -46,7 +44,6 @@ public class FrameGame extends JFrame{
 	}
 	/**
 	 *The getter of the panel.
-	 * @param 
 	 * @return panel
 	 * 		Return the panel of the frame
 	 */
@@ -57,8 +54,6 @@ public class FrameGame extends JFrame{
     *The setter of the panel.
     * @param panel
     * 		The new panel of the class.
-    * @return 
-    * 
     */
 	public void setPanel(PanelGame panel) {
 		this.panel = panel;
@@ -70,8 +65,6 @@ class TitreKeyListener implements KeyListener {
 	/**
     *The listener of the keys.
     * @param model
-    * @return 
-    * 
     */
 	public TitreKeyListener(IModel model) {
 		this.model = model;
@@ -79,8 +72,6 @@ class TitreKeyListener implements KeyListener {
 	/**
     *The method who detect the key pressed.
     * @param e
-    * @return 
-    * 
     */
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == 37){
@@ -99,8 +90,6 @@ class TitreKeyListener implements KeyListener {
 	/**
     *The method who detect the key released.
     * @param e
-    * @return 
-    * 
     */
 	public void keyReleased(KeyEvent e) {
 
@@ -108,8 +97,6 @@ class TitreKeyListener implements KeyListener {
 	/**
     *The method who detect the key typed.
     * @param e
-    * @return 
-    * 
     */
 	public void keyTyped(KeyEvent e) {
 	}

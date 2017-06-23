@@ -19,10 +19,8 @@ public class ControllerFacade implements IController {
 
 	/**
      * Constructor of ControllerFacade
-     * 
      * @param view, model
      * 			The view and the model of the controller.
-     * @return 
      */
 	public ControllerFacade(final IView view, final IModel model) {
 		super();
@@ -30,11 +28,7 @@ public class ControllerFacade implements IController {
 		this.model = model;
 	}
 	/**
-     * The method who start the display of the view.
-     * 
-     * @param 
-     * @return
-     *           
+     * The method who start the display of the view.         
      */
 	public void start() throws SQLException {
 		view.startGame(this.model);
@@ -46,9 +40,6 @@ public class ControllerFacade implements IController {
 	}
 	/**
      * The getter of the controller
-     * 
-     * @param 
-     * @return
 	 * @throws InterruptedException 
      */
 	public void loop() throws InterruptedException{
@@ -60,8 +51,7 @@ public class ControllerFacade implements IController {
 	}
 	/**
      * The getter of the View
-     * 
-     * @param 
+
      * @return IView
      *           Return the view of the controller.
      */
@@ -70,8 +60,6 @@ public class ControllerFacade implements IController {
 	}
 	/**
      * The getter of the model
-     * 
-     * @param 
      * @return IModel
      *          	Return the model of the controller. 
      */

@@ -17,37 +17,24 @@ public class ViewFacade implements IView {
 	FrameGame frame;
 	/**
 	 *The constructor of the class
-	 * @param 
-	 * @return 
-	 * 
 	 */
 	public ViewFacade() {
 		super();
 	}
 	/**
 	 *method which print a message
-	 * @param 
 	 * @return message
-	 * 
 	 */
 	@Override
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-	/**
-	 *
-	 * @param 
-	 * @return 
-	 * 
-	 */
+
 	@Override
 	public void showMenu() {
 	}
 	/**
 	 *Method who Update the game
-	 * @param 
-	 * @return 
-	 * s
 	 */
 	@Override
 	public void updateGame() {
@@ -60,9 +47,6 @@ public class ViewFacade implements IView {
 	}
 	/**
 	*Method who start the displaying of the game
-	* @param 	 
-	* @return 
-	* 
 	*/
 	@Override
 	public void startGame(IModel model) {

@@ -21,8 +21,6 @@ public class PanelGame extends JPanel{
 	 * The constructor of the class
 	 * @param model
 	 * 		The map will be generated 
-	 * @return 
-	 * 
 	 */
 	public PanelGame(IModel model){
 		this.map = model.getMap();
@@ -30,8 +28,6 @@ public class PanelGame extends JPanel{
 	/**
 	 *The method who paint the frame
 	 * @param g
-	 * @return 
-	 * 
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -44,8 +40,6 @@ public class PanelGame extends JPanel{
 	/**
 	 *The method who repaint the frame.
 	 * @param g
-	 * @return 
-	 * 
 	 */
 	public void repaint(Graphics g){
 		super.repaint();

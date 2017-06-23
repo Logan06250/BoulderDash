@@ -20,9 +20,7 @@ public class MapGame implements IMapGame{
 	/**
 	 * The constructor of the class.
 	 * @param levelInt
-	 * 			The level of the map.
-	 * @return
-	 *           
+	 * 			The level of the map.       
 	 */
 	public MapGame(int levelInt) throws SQLException{
 		this.playerAlive = true;
@@ -34,9 +32,7 @@ public class MapGame implements IMapGame{
 	/**
 	 * The method who add an element.
 	 * @param posX, posY, element
-	 * 			Adds an element with posX and posY.
-	 * @return
-	 *           
+	 * 			Adds an element with posX and posY.          
 	 */
 	public void addElement(int posX, int posY, IElement element){
 		this.grid[posX][posY] = element;
@@ -44,16 +40,13 @@ public class MapGame implements IMapGame{
 	/**
 	 * The method who get an Element of a grid.
 	 * @param posX, posY
-	 * 			To get an Element with posX and posY.
-	 * @return
-	 *           
+	 * 			To get an Element with posX and posY.        
 	 */
 	public IElement getElementOfGrid(int posX, int posY){
 		return this.grid[posX][posY];
 	}
 	/**
 	 * The getter of the grid.
-	 * @param 
 	 * @return IElement[][]
 	 *           Return the grid of the Map.
 	 */
@@ -61,18 +54,14 @@ public class MapGame implements IMapGame{
 		return this.grid;
 	}
 	/**The setter of the grid.
-	 * 
 	 * @param grid
-	 * 			return the new grid of the map.
-	 * @return
-	 *           
+	 * 			return the new grid of the map.         
 	 */
 	public void setGrid(IElement[][] grid) {
 		this.grid = grid;
 	}
 	/**
 	 * The getter of the DiamondNumber.
-	 * @param 
 	 * @return integer
 	 * 		Return the DIamond Number.
 	 *           
@@ -83,18 +72,13 @@ public class MapGame implements IMapGame{
 	/**
 	 * The setter of the DiamondNumber.
 	 * @param diamondNumber
-	 * 			The new DiamondNumber of the map.
-	 * @return
-	 *           
+	 * 			The new DiamondNumber of the map.        
 	 */
 	public void setDiamondNumber(int diamondNumber) {
 		this.diamondNumber = diamondNumber;
 	}
 	/**
-	 * The Method who updateThe map, change the position of rocks, diamond, and monster.
-	 * @param 
-	 * @return
-	 *           
+	 * The Method who updateThe map, change the position of rocks, diamond, and monster.        
 	 */
 	public void autoUpdateMap(){
 		if(this.diamondToFinish == this.diamondNumber){
@@ -171,9 +155,7 @@ public class MapGame implements IMapGame{
 	/**
 	 * The method which change the orientation and the position of the player.
 	 * @param direction, posX, posY
-	 * 			The positions o the player and the movement associated.
-	 * @return
-	 *           
+	 * 			The positions o the player and the movement associated.       
 	 */
 	public void movingPlayer(model.IDirection.Direction direction, int posX, int posY){
 		if(playerAlive){
@@ -254,9 +236,7 @@ public class MapGame implements IMapGame{
 	/**
 	 * The method who move a player
 	 * @param direction
-	 * 		Move the player with a direction.	
-	 * @return
-	 *           
+	 * 		Move the player with a direction.	        
 	 */
 	public void movePlayer(model.IDirection.Direction direction){
 
@@ -265,9 +245,7 @@ public class MapGame implements IMapGame{
 	/**
 	 * The method who generate the map and fill it with the BDD.
 	 * @param levelId
-	 * 			The level of the map.
-	 * @return
-	 *           
+	 * 			The level of the map.        
 	 */
 	public void generateMap(int levelId) throws SQLException{
 

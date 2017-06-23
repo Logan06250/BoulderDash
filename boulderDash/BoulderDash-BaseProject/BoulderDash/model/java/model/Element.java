@@ -24,11 +24,8 @@ public class Element implements IElement{
 	private ImageIcon imageIcon;
 	/**
      * The constructor of the Element.
-     * 
      * @param type
      * 			The type of the element who define is place in the map.
-     * @return
-     *           
      */
 	public Element(model.IEnvironment.Environment type){
 		this.type = type;
@@ -43,11 +40,8 @@ public class Element implements IElement{
 	}
 	/**
      * The second constructor of the Element.
-     * 
      * @param movement
-     * 			The movement define the orientation of the Element if it's a player.
-     * @return
-     *           
+     * 			The movement define the orientation of the Element if it's a player.         
      */
 	public Element(model.IDirection.Direction movement){
 		this.type = model.IEnvironment.Environment.PLAYER;
@@ -61,9 +55,6 @@ public class Element implements IElement{
 		this.setMovement(movement);
 	}
 	/**
-     * The getter of the Image.
-     * 
-     * @param 
      * @return BufferedImage
      *      Return the image of the Element.     
      */
@@ -72,63 +63,46 @@ public class Element implements IElement{
 	}
 	/**
      * The setter of the Image.
-     * 
      * @param image
-     * 		The new Image of the Element.
-     * @return 
-     *           
+     * 		The new Image of the Element.       
      */
 	public void setImage(BufferedImage image) {
 		this.image = image;
 	}
 	/**
      * The getter of the type.
-     * 
-     * @param 
      * @return Enum.Environment
-     * 		Return the type of the Element.
-     *         
+     * 		Return the type of the Element.      
      */
 	public model.IEnvironment.Environment getType() {
 		return this.type;
 	}
 	/**
      * The setter of the type
-     * 
      * @param type
-     * 		The new type of the Element. 
-     * @return 
-     *         
+     * 		The new type of the Element.       
      */
 	public void setType(model.IEnvironment.Environment type) {
 		this.type = type;
 	}
 	/**
      * The getter of the movement
-     * 
-     * @param 
      * @return Enum.Direction
-     * 		Return the movement of the Element.
-     *         
+     * 		Return the movement of the Element.     
      */
 	public model.IDirection.Direction getMovement() {
 		return this.movement;
 	}
 	/**
      * The setter of the movement.
-     * 
      * @param mmovement
-     * 		The new movement of the Element.
-     * @return 
-     *         
+     * 		The new movement of the Element.      
      */
 	public void setMovement(model.IDirection.Direction movement) {
 		this.movement = movement;
 	}
 	/**
      * The getter of the ImageIcon
-     * 
-     * @param 
      * @return  ImageIcon
      *         Return the ImageIcon of the Element.
      */
@@ -137,22 +111,16 @@ public class Element implements IElement{
 	}
 	/**
      * The setter of the ImageIcon.
-     * 
      * @param imageIcon
-     * 		The new ImageIcon.
-     * @return 
-     *         
+     * 		The new ImageIcon.        
      */
 	public void setImageIcon(ImageIcon imageIcon) {
 		this.imageIcon = imageIcon;
 	}
 	/**
      * The fetter of the XSpriteImagePlayer.
-     * 
-     * @param 
      * @return XSpriteImagePlayer
-     * 		Return the posX of the Sprite of the player for each movement.
-     *         
+     * 		Return the posX of the Sprite of the player for each movement.     
      */
 	public int getXSpriteImagePlayer(model.IDirection.Direction movement){
 		int tempV = 0;
@@ -170,11 +138,8 @@ public class Element implements IElement{
 	}
 	/**
      * The fetter of the YSpriteImagePlayer.
-     * 
-     * @param 
      * @return XSpriteImagePlayer
-     * 		Return the posX of the Sprite of the player for each movement.
-     *         
+     * 		Return the posX of the Sprite of the player for each movement.      
      */
 	public int getYSpriteImagePlayer(model.IDirection.Direction movement){
 		int tempV = 0;
@@ -193,11 +158,8 @@ public class Element implements IElement{
 	}
 	/**
      * The fetter of the XSpriteImage.
-     * 
-     * @param 
      * @return XSpriteImage
-     * 		Return the posX of the Sprite of the Element for each type.
-     *         
+     * 		Return the posX of the Sprite of the Element for each type.       
      */
 	public int getXSpriteImage(model.IEnvironment.Environment type){
 		int tempV = 0;
@@ -223,11 +185,8 @@ public class Element implements IElement{
 	}
 	/**
      * The fetter of the YSpriteImage.
-     * 
-     * @param 
      * @return YSpriteImage
-     * 		Return the posY of the Sprite of the Element for each type.
-     *         
+     * 		Return the posY of the Sprite of the Element for each type.     
      */
 	public int getYSpriteImage(model.IEnvironment.Environment type){
 		int tempV = 0;

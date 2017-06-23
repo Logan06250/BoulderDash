@@ -16,11 +16,8 @@ import view.ViewFacade;
 public abstract class Main{
 	/**
      * The main class of the project.
-     * 
      * @param args
-     * 		When we call this program, we can add parameters.
-     * @return 
-     *           
+     * 		When we call this program, we can add parameters.         
      */
     public static void main(final String[] args) throws SQLException, InterruptedException {
     	ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(2));

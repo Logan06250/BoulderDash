@@ -13,22 +13,16 @@ public class ModelFacade implements IModel {
 	IMapGame map;
 	/**
      * The constructor of the class.
-     * 
      * @param id
-     * 		Choose the level.
-     * @return 
-     *           
+     * 		Choose the level.        
      */
 	public ModelFacade(int id) {
 		this.setMap(id);
 	}
 	/**
      * The setter of the map
-     * 
      * @param id
-     * 		The level of the map.
-     * @return 
-     *           
+     * 		The level of the map.         
      */
 	public void setMap(int id){
 		try {
@@ -39,11 +33,8 @@ public class ModelFacade implements IModel {
 	}
 	/**
      * The getter of the map.
-     * 
-     * @param 
      * @return IMapGame.
-     * 		The map of the model.
-     *           
+     * 		The map of the model.        
      */
 	public IMapGame getMap(){
 		return this.map;

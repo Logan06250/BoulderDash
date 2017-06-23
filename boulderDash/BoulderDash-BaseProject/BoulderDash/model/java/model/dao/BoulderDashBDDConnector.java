@@ -18,11 +18,7 @@ public class BoulderDashBDDConnector {
     private String                  password = "";
     private String                  url      = "jdbc:mysql://localhost/boulderdash?useSSL=false&serverTimezone=UTC";
     /**
-     * The Constructor of the class
-     * 
-     * @param 
-     * @return 
-     *         
+     * The Constructor of the class       
      */
     public BoulderDashBDDConnector() throws SQLException {
     }
