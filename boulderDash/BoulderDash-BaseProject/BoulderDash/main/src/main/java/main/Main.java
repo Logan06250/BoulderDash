@@ -20,11 +20,8 @@ public abstract class Main{
      * 		When we call this program, we can add parameters.         
      */
 	
-	//hello
     public static void main(final String[] args) throws SQLException, InterruptedException {
     	ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(2));
-
     	controller.start();
-    	
     }
 }

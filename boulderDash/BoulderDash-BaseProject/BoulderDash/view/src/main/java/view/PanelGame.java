@@ -15,7 +15,6 @@ import model.IModel;
 
 public class PanelGame extends JPanel{
 
-	private static final long serialVersionUID = 1L;
 	IModel model;
 	JLabel diamondLabel;
 	/**
